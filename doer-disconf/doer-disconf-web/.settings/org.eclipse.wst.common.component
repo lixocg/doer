@@ -9,6 +9,9 @@
         <dependent-module archiveName="doer-disconf-core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/doer-disconf-core/doer-disconf-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="doer-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/doer-common/doer-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="doer-disconf-web"/>
         <property name="java-output-path" value="/doer-disconf-web/target/classes"/>
     </wb-module>
