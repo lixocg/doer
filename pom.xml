@@ -10,6 +10,8 @@
 		<module>doer-disconf</module>
 		<module>doer-mapper</module>
 		<module>doer-common</module>
+		<module>doer-orm</module>
+		<module>doer-entity</module>
 	</modules>
 
 	<repositories>
@@ -267,6 +269,7 @@
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<!-- aspectj -->
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjtools</artifactId>
