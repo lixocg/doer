@@ -13,7 +13,6 @@
 		<module>doer-disconf-core</module>
 		<module>doer-disconf-client</module>
 		<module>doer-disconf-web</module>
-		<module>doer-common</module>
 	</modules>
 
 	<dependencies>

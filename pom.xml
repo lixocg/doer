@@ -9,6 +9,7 @@
 	<modules>
 		<module>doer-disconf</module>
 		<module>doer-mapper</module>
+		<module>doer-common</module>
 	</modules>
 
 	<repositories>
