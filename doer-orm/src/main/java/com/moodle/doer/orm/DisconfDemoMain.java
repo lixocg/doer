@@ -32,10 +32,10 @@ public class DisconfDemoMain {
         DisconfDemoTask task = ctx.getBean("disconfDemoTask", DisconfDemoTask.class);
         
         Object bean = ctx.getBean("dataSource");
-        System.out.println(bean);
+        System.out.println("-------------"+bean);
 
-        int ret = task.run();
+       // int ret = task.run();
 
-        System.exit(ret);
+      //  System.exit(ret);
     }
 }
