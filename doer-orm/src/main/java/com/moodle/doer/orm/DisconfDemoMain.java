@@ -16,7 +16,7 @@ public class DisconfDemoMain {
 
     // 初始化spring文档
     private static void contextInitialized() {
-        fn = new String[] {"spring/applicationContext-dconf.xml"};
+        fn = new String[] {"spring/applicationContext-*.xml"};
     }
 
     /**
@@ -30,6 +30,9 @@ public class DisconfDemoMain {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(fn);
 
         DisconfDemoTask task = ctx.getBean("disconfDemoTask", DisconfDemoTask.class);
+        
+        Object bean = ctx.getBean("dataSource");
+        System.out.println(bean);
 
         int ret = task.run();
 
