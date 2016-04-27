@@ -26,7 +26,11 @@ public class SpringRegistry implements Registry, ApplicationContextAware {
 
     private SimpleRegistry simpleRegistry = new SimpleRegistry();
 
-    @Override
+    /**
+     * 实现了ApplicationContextAware，在创建完SpringRegister对象之后，会自动执行此方法。
+     */
+    @SuppressWarnings("static-access")
+	@Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }

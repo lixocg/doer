@@ -21,6 +21,6 @@ public class OrmTest {
 	@Test
 	public void test01(){
 		TbContent content = tbContentMapper.selectByPrimaryKey(43L);
-		System.out.println(gson.toJson(content));
+		System.out.println("------------------"+gson.toJson(content));
 	}
 }
