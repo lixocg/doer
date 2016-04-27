@@ -30,7 +30,7 @@ public final class DisconfAutowareConfig {
     /**
      * 先用TOMCAT模式进行导入配置文件，若找不到，则用项目目录模式进行导入
      */
-    private static Properties getProperties(final String propertyFilePath) throws Exception {
+	private static Properties getProperties(final String propertyFilePath) throws Exception {
 
         try {
 
@@ -102,43 +102,29 @@ public final class DisconfAutowareConfig {
      *
      * @Description: auto ware
      */
-    private static void autowareConfig(final Object obj, Properties prop) throws Exception {
-
+	private static void autowareConfig(final Object obj, Properties prop) throws Exception {
         if (null == prop || obj == null) {
             throw new Exception("cannot autowareConfig null");
         }
-
         try {
-
             Field[] fields = obj.getClass().getDeclaredFields();
-
             for (Field field : fields) {
-
                 if (field.isAnnotationPresent(DisconfFileItem.class)
                         || field.isAnnotationPresent(DisInnerConfigAnnotation.class)) {
-
                     if (Modifier.isStatic(field.getModifiers())) {
                         continue;
                     }
-
                     String name;
                     String value;
-
                     if (field.isAnnotationPresent(DisconfFileItem.class)) {
-
                         name = field.getName();
                         value = prop.getProperty(name, null);
-
                     } else {
-
                         // disconf使用的配置
-
                         DisInnerConfigAnnotation config = field.getAnnotation(DisInnerConfigAnnotation.class);
                         name = config.name();
-
                         String defaultValue = config.defaultValue();
                         value = prop.getProperty(name, defaultValue);
-
                         // using disconf as prefix to avoid env confusion
                         if (value.equals(defaultValue) && name != null) {
                             if (name.contains("disconf.")) {
@@ -147,24 +133,17 @@ public final class DisconfAutowareConfig {
                             }
                         }
                     }
-
                     field.setAccessible(true);
-
                     if (null != value) {
-
                         try {
-
                             ClassUtils.setFieldValeByType(field, obj, value);
-
                         } catch (Exception e) {
-
                             LOGGER.error(String.format("invalid config: %s", name), e);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-
             throw new Exception("error while autowire config file", e);
         }
     }

@@ -24,12 +24,8 @@ public class ConfigMgr {
      * @throws Exception
      */
     public synchronized static void init() throws Exception {
-
         LOGGER.info("--------------- LOAD CONFIG START ---------------");
-
-        //
         LOGGER.info("Finer print: " + DisClientComConfig.getInstance().getInstanceFingerprint());
-
         // 导入系统配置
         DisClientSysConfig.getInstance().loadConfig(null);
 
