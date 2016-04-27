@@ -5,11 +5,12 @@ import org.springframework.stereotype.Service;
 
 import com.baidu.disconf.client.common.annotations.DisconfFile;
 import com.baidu.disconf.client.common.annotations.DisconfFileItem;
+import com.baidu.disconf.client.common.update.IDisconfUpdate;
 
 @Service
 @Scope("singleton")
 @DisconfFile(filename = "db.properties")
-public class JdbcConfig {
+public class JdbcConfig implements IDisconfUpdate{
 	
 	private String driver;
 	
@@ -53,6 +54,11 @@ public class JdbcConfig {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public void reload() throws Exception {
+		
 	}
 	
 	

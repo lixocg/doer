@@ -65,19 +65,12 @@ public class DisconfMgr implements ApplicationContextAware {
      * 第一次扫描，静态扫描 for annotation config
      */
     protected synchronized void firstScan(List<String> scanPackageList) {
-
         // 该函数不能调用两次
         if (isFirstInit) {
             LOGGER.info("DisConfMgr has been init, ignore........");
             return;
         }
-
-        //
-        //
-        //
-
         try {
-
             // 导入配置
             ConfigMgr.init();
 

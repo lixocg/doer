@@ -2,6 +2,7 @@ package com.baidu.disconf.client.config.inner;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Enumeration;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -74,4 +75,13 @@ public class DisClientComConfig {
         return instanceFingerprint.getHost() + "_" + String.valueOf(instanceFingerprint.getPort()) + "_" +
                 instanceFingerprint.getUuid();
     }
+    
+    public static void main(String[] args) {
+    	Properties properties = System.getProperties();
+    	Enumeration<Object> keys = properties.keys();
+    	while(keys.hasMoreElements()){
+    		String key = keys.nextElement().toString();
+    		System.out.println(key+"::::::::::"+properties.getProperty(key));
+    	}
+	}
 }
