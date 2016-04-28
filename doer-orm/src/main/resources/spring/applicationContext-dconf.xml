@@ -21,7 +21,7 @@
 	</bean>
 
 	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
-	<bean id="reloadablePropertiesFactoryBean"
+	<!-- <bean id="reloadablePropertiesFactoryBean"
 		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
 		<property name="locations">
 			<list>
@@ -39,5 +39,6 @@
 				<ref bean="reloadablePropertiesFactoryBean" />
 			</list>
 		</property>
-	</bean>
+	</bean> -->
+	<bean class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer"/>
 </beans>
