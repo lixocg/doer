@@ -21,7 +21,7 @@
 	</bean>
 
 	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
-	<!-- <bean id="reloadablePropertiesFactoryBean"
+	 <bean id="reloadablePropertiesFactoryBean"
 		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
 		<property name="locations">
 			<list>
@@ -30,6 +30,7 @@
 		</property>
 	</bean>
 
+<!-- 
 	<bean id="propertyPlaceholderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreResourceNotFound" value="true" />
@@ -40,5 +41,12 @@
 			</list>
 		</property>
 	</bean> -->
-	<bean class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer"/>
+	
+	<bean class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer">
+		<property name="propertiesArray">
+			<list>
+				<ref bean="reloadablePropertiesFactoryBean"/>
+			</list>
+		</property>
+	</bean>
 </beans>

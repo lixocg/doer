@@ -22,5 +22,23 @@ public class OrmTest {
 	public void test01(){
 		TbContent content = tbContentMapper.selectByPrimaryKey(43L);
 		System.out.println("------------------"+gson.toJson(content));
+		try {
+			Thread.sleep(Integer.MAX_VALUE);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void test02(){
+		TbContent content = tbContentMapper.selectByPrimaryKey(43L);
+		System.out.println("------------------"+gson.toJson(content));
+		try {
+			Thread.sleep(Integer.MAX_VALUE);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
